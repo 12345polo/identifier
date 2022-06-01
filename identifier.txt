@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool check(string str, int n)
+{
+    if(!((str[0] >= 'a' && str[0] <='z') ||  (str[0] >= 'A' && str[0] <= 'Z') || str[0] == '_'))
+        return false;
+    for(int i=1; i<str.length(); i++)
+    {
+        if(!((str[i] >= 'a' && str[i] <='z') ||  (str[i] >= 'A' && str[i] <= 'Z') ||  (str[i] >= '0' && str[i] <= '9') || str[i] == '_' ))
+          return false;
+    }
+    if((str == "if") || (str == "else") || (str == "while") || (str == "do") ||
+       (str == "break") || (str == "volatile") || (str == "continue") || (str == "int") ||
+       (str == "double") || (str == "float") || (str == "return") || (str == "char") ||
+       (str == "case") || (str == "char") || (str == "sizeof") || (str == "long") ||
+       (str == "short") || (str == "typedef") || (str == "switch") || (str == "unsigned") ||
+       (str == "void") || (str == "static") || (str == "struct") || (str == "goto") ||
+       (str == "auto") || (str == "register") || (str == "enumf") || (str == "union") ||
+       (str == "const") || (str == "for") || (str == "short") || (str == "signed"))
+        return false;
+
+    return true;
+}
+int main()
+{
+    string str;
+    cout<<"Enter a string: "<<endl;
+    cin>>str;
+    int n = str.length();
+    if(check(str,n))
+        cout<<"Valid";
+    else
+        cout<<"Invalid";
+    return 0;
+}
+
