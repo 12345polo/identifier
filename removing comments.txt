@@ -1,0 +1,44 @@
+a.Removing Comments
+
+#include <iostream>
+using namespace std;
+string removeComments(string str)
+{
+	int n = str.length();
+	string res;
+	bool sc = false;
+	bool mc = false;
+	for (int i=0; i<n; i++)
+	{
+		
+		if (sc == true && str[i] == '\n')
+			sc = false;
+
+		else if (mc == true && str[i] == '*' && str[i+1] == '/')
+			mc = false, i++;
+
+		else if (sc || mc)
+			continue;
+
+		else if (str[i] == '/' && str[i+1] == '/')
+			sc = true, i++;
+		else if (str[i] == '/' && str[i+1] == '*')
+			mc = true, i++;
+
+		else res += str[i];
+	}
+	return res;
+}
+int main()
+{
+	string str;
+	cout<<"Enter string: "<<endl;
+	cin>>str;
+	cout << " Code without comment: "<<endl;
+	cout << removeComments(str);
+	
+	return 0;
+}
+
+
+ 
